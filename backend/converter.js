@@ -7,7 +7,7 @@ let audioSource = {
 };
 
 // Sending a Buffer of the file
-fs.readFile("./static/uploads/firebase.mp4", function (err, buffer) {});
+fs.readFile("./static/uploads/tauri.mp4", function (err, buffer) {});
 
 async function start() {
   const response = await deepgram.transcription.preRecorded(audioSource, {

@@ -22,6 +22,7 @@ import Manageblog from "./components/user/manageBlog";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
 import Browsing from "./components/main/browsing";
+import AddBlog from "./components/user/addBlog";
 
 function App() {
   TimeAgo.addDefaultLocale(en);
@@ -62,6 +63,7 @@ function App() {
           >
             <Route element={<ManageVideo />} path="managevideo" />
             <Route element={<Manageblog />} path="manageblog" />
+            <Route element={<AddBlog />} path="addblog" />
           </Route>
           <Route element={<Main />} path="main">
             <Route element={<Login />} path="login" />

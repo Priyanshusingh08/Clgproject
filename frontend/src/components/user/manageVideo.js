@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import app_config from "../../config";
 import TimeAgo from "javascript-time-ago";
+import { useNavigate } from "react-router-dom";
 
 const ManageVideo = () => {
   const timeAgo = new TimeAgo("en-US");
@@ -30,6 +31,8 @@ const ManageVideo = () => {
     uploadedby: currentUser._id,
     createdAt: new Date(),
   };
+
+  const navigate = useNavigate();
 
   const fetchVideos = () => {
     fetch(url + "/video/getbyuser/" + currentUser._id).then((res) => {
@@ -141,7 +144,12 @@ const ManageVideo = () => {
     fetch(url + "/util/transcribe/" + videoid).then((res) => {
       if (res.status === 200) {
         res.json().then((data) => {
-          console.log(data);
+          console.log(data.transcription);
+          sessionStorage.setItem(
+            "transcription",
+            JSON.stringify(data.transcription)
+          );
+          navigate("/user/addblog");
         });
       }
     });

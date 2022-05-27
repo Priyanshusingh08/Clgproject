@@ -1,0 +1,17 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: sans-serif;
+}
+.blog-header{
+    background-color: rgb(73, 76, 97);
+    height:300px;
+}
+.blog-body{
+    background: url('');
+    background-color: white;
+}
+.post-card{
+    margin-top: -60px;
+}
