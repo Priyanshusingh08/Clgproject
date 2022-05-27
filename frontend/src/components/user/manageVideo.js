@@ -55,6 +55,15 @@ const ManageVideo = () => {
       method: "POST",
       body: JSON.stringify(formdata),
       headers: { "Content-Type": "application/json" },
+    }).then((res) => {
+      if (res.status === 200) {
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Video Uploaded",
+        });
+        fetchVideos();
+      }
     });
   };
 

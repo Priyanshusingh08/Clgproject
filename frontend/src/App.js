@@ -21,6 +21,7 @@ import ManageVideo from "./components/user/manageVideo";
 import Manageblog from "./components/user/manageBlog";
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
+import Browsing from "./components/main/browsing";
 
 function App() {
   TimeAgo.addDefaultLocale(en);
@@ -29,7 +30,7 @@ function App() {
   const mytheme = createTheme({
     palette: {
       primary: {
-        main: "#d75500",
+        main: "#ab0000",
       },
     },
   });
@@ -67,6 +68,7 @@ function App() {
             <Route element={<Signup />} path="signup" />
             <Route element={<ResetPassword />} path="resetpassword" />
             <Route element={<Home />} path="home" />
+            <Route element={<Browsing />} path="browsing" />
             {/* <Route element={<NotFound />} path="404" /> */}
           </Route>
           <Route element={<ViewPage />} path="view/:pageid" />

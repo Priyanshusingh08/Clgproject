@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer
-      className="text-center text-lg-start bg-light"
+      className="text-center text-lg-start bg-light "
       style={{ color: "#d75500" }}
     >
       <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
