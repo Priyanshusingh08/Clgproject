@@ -93,4 +93,17 @@ router.post("/authenticate", (req, res) => {
     });
 });
 
+router.delete("/delete/:id", (req, res) => {
+  Model.findByIdAndDelete(req.params.id)
+    .then((data) => {
+      console.log("data saved");
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json(err);
+    });
+});
+
+
 module.exports = router;

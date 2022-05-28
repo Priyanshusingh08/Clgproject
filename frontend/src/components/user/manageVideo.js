@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 import app_config from "../../config";
 import TimeAgo from "javascript-time-ago";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const ManageVideo = () => {
   const timeAgo = new TimeAgo("en-US");
@@ -30,6 +31,27 @@ const ManageVideo = () => {
     file: "",
     uploadedby: currentUser._id,
     createdAt: new Date(),
+  };
+
+  const deleteData = (id) => {
+    fetch(url + "/video/delete/" + id, { method: "DELETE" })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        fetchVideos();
+        toast.success("News Successfully Deleted!!", {
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+        Swal.fire({
+          icon: "success",
+          title: "Success!!",
+          text: "Deleted",
+        });
+      });
   };
 
   const navigate = useNavigate();
@@ -95,16 +117,16 @@ const ManageVideo = () => {
 
   const addVideo = () => {
     return (
-      <div className="card">
+      <div className="card mt-4">
         <div className="card-header">
           <h3 className="mb-0">Add New Video</h3>
         </div>
-        <div className="card-body">
+        <div className="card-body ">
           <Formik initialValues={videoform} onSubmit={videoSubmit}>
             {({ values, handleChange, handleSubmit }) => (
               <form onSubmit={handleSubmit}>
-                <div className="row">
-                  <div className="col-md-6">
+                <div className="row ">
+                  <div className="col-md-6 ">
                     <TextField
                       className="w-100 mb-4"
                       label="Title"
@@ -182,6 +204,12 @@ const ManageVideo = () => {
                 >
                   Transcribe
                 </button>
+                <button
+                  className="btn btn-dark mt-4 "
+                  onClick={(e) => deleteData(_id)}
+                >
+                  Remove
+                </button>
               </div>
             </div>
           </div>
@@ -192,10 +220,10 @@ const ManageVideo = () => {
 
   return (
     <div className="addvideo-back">
-      <div className="container">
+      <div className="container ">
         {addVideo()}
         <div className="mt-5">
-          <h2 className="mb-0">Manage Videos</h2>
+          <h2 className="mb-0 ">Manage Videos</h2>
           <hr />
           {manageVideo()}
         </div>

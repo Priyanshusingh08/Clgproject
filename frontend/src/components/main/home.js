@@ -80,7 +80,7 @@ const Home = () => {
                       style={{ zIndex: "1" }}
                     >
                       <img
-                        src="https://mdbootstrap.com/img/new/standard/city/017.jpg"
+                        src="https://media.istockphoto.com/photos/blogging-woman-reading-blog-picture-id887987150?k=20&m=887987150&s=612x612&w=0&h=vCVYGvEkLb3DuCL7DOSoNm8i78Lci4oCt7XD4HGasIg="
                         className="w-100 rounded-4 shadow-5"
                         alt=""
                         aria-controls="#picker-editor"
@@ -107,7 +107,7 @@ const Home = () => {
               <div className="row gx-lg-5 mb-5 align-items-center">
                 <div className="col-md-6 mb-4 mb-md-0">
                   <img
-                    src="https://mdbootstrap.com/img/new/standard/city/028.jpg"
+                    src="https://st2.depositphotos.com/4107269/7635/i/600/depositphotos_76358181-stock-photo-messy-workspace-of-freelancer-concept.jpg"
                     className="w-100 shadow-4-strong rounded-4 mb-4"
                     alt=""
                     aria-controls="#picker-editor"
@@ -146,7 +146,7 @@ const Home = () => {
               <div className="row gx-lg-5 mb-5 flex-lg-row-reverse align-items-center">
                 <div className="col-md-6 mb-4 mb-md-0">
                   <img
-                    src="https://mdbootstrap.com/img/new/standard/city/033.jpg"
+                    src="https://media.istockphoto.com/photos/closeup-hands-of-freelancer-woman-working-using-digital-laptop-and-picture-id980838288?b=1&k=20&m=980838288&s=170667a&w=0&h=ZZG3H3jxq8V5P5tRUgcqMol8d_1VJqtwo0ruiZmG_Z8="
                     className="w-100 shadow-4-strong rounded-4 mb-4"
                     alt=""
                     aria-controls="#picker-editor"
