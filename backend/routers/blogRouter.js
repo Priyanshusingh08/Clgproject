@@ -20,11 +20,10 @@ router.post("/add", (req, res) => {
     });
 });
 
-
 router.get("/getbyuser/:id", (req, res) => {
   console.log(req.params.id);
 
-  Model.find({uploadedBy : req.params.id})
+  Model.find({ author: req.params.id })
     .then((data) => {
       res.status(200).json(data);
     })
@@ -32,9 +31,7 @@ router.get("/getbyuser/:id", (req, res) => {
       console.error(err);
       res.status(500).json(err);
     });
-
 });
-
 
 router.get("/getall", (req, res) => {
   Model.find({})

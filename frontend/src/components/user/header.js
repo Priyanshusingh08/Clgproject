@@ -21,12 +21,12 @@ const pages = [
     link: "/main/home",
   },
   {
-    name: "Manage Your Webpage",
-    link: "/user/managewebpage",
+    name: "Browse Blog",
+    link: "/main/browsing",
   },
   {
-    name: "Manage Plans",
-    link: "/user/manageplans",
+    name: "Manage Blog",
+    link: "/user/manageblog",
   },
   {
     name: "Pricing",

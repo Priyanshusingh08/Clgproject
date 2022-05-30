@@ -5,7 +5,7 @@ const ViewBlog = () => {
   return (
     <div>
         <section class="section home-5-bg" id="home">
-        <div id="particles-js"></div>
+        <div id="particles-js" style={{ backgroundImage: `url("https://marketingaccesspass.com/wp-content/uploads/2015/10/Podcast-Website-Design-Background-Image.jpg")`}}></div>
         <div class="bg-overlay"></div>
         <div class="home-center">
           <div class="home-desc-center">

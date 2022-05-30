@@ -4,7 +4,7 @@ const schema = new mongoose.Schema({
   title: String,
   discription: String,
   data: String,
-  thumbnail: Number,
+  thumbnail: String,
   uploadedby: String,
   createAt: { type: Date, default: new Date() },
 });

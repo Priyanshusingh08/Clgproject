@@ -1,9 +1,82 @@
 import { Search } from "@mui/icons-material";
-import { Button, Card, CardActions, CardContent, CardMedia, InputAdornment, TextField, Typography } from "@mui/material";
-import React from "react";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
+import React, { useEffect, useState } from "react";
 import "./browsing.css";
+import TimeAgo from "javascript-time-ago";
+import app_config from "../../config";
+import { useNavigate } from "react-router-dom";
 
 const Browsing = () => {
+  const timeAgo = new TimeAgo("en-US");
+  const url = app_config.backend_url;
+  const [selFile, setSelFile] = useState("");
+
+  const [blogArray, setBlogArray] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(sessionStorage.getItem("user"))
+  );
+
+  const navigate = useNavigate();
+
+  const fetchVideos = () => {
+    fetch(url + "/blog/getall/").then((res) => {
+      if (res.status === 200) {
+        res.json().then((data) => {
+          console.log(data);
+          setLoading(false);
+          setBlogArray(data);
+        });
+      }
+    });
+  };
+
+  useEffect(() => {
+    fetchVideos();
+  }, []);
+
+  const displayBlogs = () => {
+    return (
+      <div className="row">
+        {blogArray.map(
+          ({ _id, title, description, thumbnail, author, createdAt }) => (
+            <div class="col-sm">
+              <Card sx={{ maxWidth: 345 }} className="rounded">
+                <CardMedia
+                  component="img"
+                  alt="green iguana"
+                  height="140"
+                  image={url + "/uploads/" + thumbnail}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {description}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small" onClick={(e) => navigate("/user/viewblog/:blogid")}>View</Button>
+                </CardActions>
+              </Card>
+            </div>
+          )
+        )}
+      </div>
+    );
+  };
+
   return (
     <div>
       <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -28,7 +101,6 @@ const Browsing = () => {
                       consequatur Quis autem.
                     </p>
                     <div class="mt-5">
-                     
                       <div className="input-group mt-5">
                         <input
                           className="form-control"
@@ -61,88 +133,9 @@ const Browsing = () => {
       </section>
 
       <div class="container my-5">
-  <div class="row ">
-    <div class="col-sm">
-    <Card sx={{ maxWidth: 345 }} className="rounded">
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="140"
-        image="https://media.istockphoto.com/photos/bloggingblog-concepts-ideas-with-worktable-picture-id922745190?b=1&k=20&m=922745190&s=170667a&w=0&h=0lBPWualF5SE8Khy1uRoGOcMZry55ZiUUWvPUPIZ3H0="
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Blog
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+        <div class="row ">{displayBlogs()}</div>
+      </div>
     </div>
-    <div class="col-sm">
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="140"
-        image="https://ohsheblogs.com/wp-content/uploads/2016/01/free-stock-images-pexels.jpg"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Automate
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-    </div>
-    <div class="col-sm ">
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="140"
-        image="https://media.istockphoto.com/photos/blogging-woman-reading-blog-picture-id887987150?k=20&m=887987150&s=612x612&w=0&h=vCVYGvEkLb3DuCL7DOSoNm8i78Lci4oCt7XD4HGasIg="
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Blogging
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-    </div>
-  </div>
-</div>
-
-
-     
-
-
-
-    </div>
-
-
-
   );
 };
 

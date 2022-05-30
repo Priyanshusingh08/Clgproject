@@ -6,6 +6,7 @@ const schema = new mongoose.Schema({
   thumbnail: String,
   uploadedby: String,
   transcription: Object,
+  author: { type: Date, ref : 'users' },
   createdAt: Date,
 });
 

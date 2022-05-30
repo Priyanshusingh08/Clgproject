@@ -16,7 +16,6 @@ import Signup from "./components/main/signup";
 import Home from "./components/main/home";
 import Authorisor from "./components/authenticator";
 import AdminAuthorisor from "./components/adminAuth";
-import ViewPage from "./components/main/viewPage";
 import ManageVideo from "./components/user/manageVideo";
 import Manageblog from "./components/user/manageBlog";
 import TimeAgo from "javascript-time-ago";
@@ -24,6 +23,7 @@ import en from "javascript-time-ago/locale/en.json";
 import Browsing from "./components/main/browsing";
 import AddBlog from "./components/user/addBlog";
 import ViewBlog from "./components/user/viewBlog";
+import Pricing from "./components/main/pricing";
 
 function App() {
   TimeAgo.addDefaultLocale(en);
@@ -72,10 +72,13 @@ function App() {
             <Route element={<Signup />} path="signup" />
             <Route element={<ResetPassword />} path="resetpassword" />
             <Route element={<Home />} path="home" />
+            <Route element={<Pricing />} path="pricing" />
             <Route element={<Browsing />} path="browsing" />
+            
+            
             {/* <Route element={<NotFound />} path="404" /> */}
           </Route>
-          <Route element={<ViewPage />} path="view/:pageid" />
+          <Route element={<ViewBlog />} path="viewblog/:blogid" />
           <Route element={<Navigate to="/main/home" />} path="/" />
           <Route element={<Navigate to="/main/404" />} path="*" />
         </Routes>

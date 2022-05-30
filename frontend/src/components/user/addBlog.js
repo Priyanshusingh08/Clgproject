@@ -29,7 +29,7 @@ const AddBlog = () => {
   const blogForm = {
     title: "",
     description: "",
-    tags: [],
+
     data: {},
     thumbnail: {},
     author: currentUser._id,
@@ -42,7 +42,7 @@ const AddBlog = () => {
     let formdata = new FormData();
     let file = e.target.files[0];
     setThumbnail(file.name);
-    formdata.append("file", file);
+    formdata.append("myfile", file);
 
     fetch(url + "/util/uploadfile", { method: "POST", body: formdata })
       .then((res) => res.json())
@@ -116,7 +116,7 @@ const AddBlog = () => {
                       value={values.description}
                     />
                     <br />
-                    <TextField
+                    {/* <TextField
                       className="w-100 mb-2"
                       id="tags"
                       label="Tags"
@@ -126,7 +126,7 @@ const AddBlog = () => {
                       value={values.tags}
                     />
 
-                    <br />
+                    <br /> */}
 
                     <input
                       className="form-control mb-2"
@@ -146,12 +146,6 @@ const AddBlog = () => {
                       >
                         Post
                       </Button>
-                      <button
-                        type="button"
-                        onClick={(e) => console.log(blogData)}
-                      >
-                        ok
-                      </button>
                     </div>
                   </form>
                 )}
