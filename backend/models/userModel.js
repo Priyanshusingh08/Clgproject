@@ -5,6 +5,7 @@ const schema = new mongoose.Schema({
   password: String,
   username: String,
   age: Number,
+  name: String,
   thumbnail: String,
   isAdmin: { type: Boolean, default: false },
   createAt: { type: Date, default: new Date() },

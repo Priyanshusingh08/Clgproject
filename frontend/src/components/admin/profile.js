@@ -98,7 +98,7 @@ const AdminProfile = (props) => {
   };
 
   return (
-    <div className="col-md-10 mx-auto">
+    <div className="col-md-10 mx-auto pt-5">
       <Card>
         <CardContent>
           <div className="row">

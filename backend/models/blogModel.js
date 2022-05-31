@@ -2,7 +2,7 @@ const mongoose = require("../connection");
 
 const schema = new mongoose.Schema({
   title: String,
-  discription: String,
+  description: String,
   data: String,
   thumbnail: String,
   uploadedby: String,

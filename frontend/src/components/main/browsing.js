@@ -48,33 +48,38 @@ const Browsing = () => {
   const displayBlogs = () => {
     return (
       <div className="container">
-      <div className="row">
-        {blogArray.map(
-          ({ _id, title, description, thumbnail, author, createdAt }) => (
-            <div className="col-md">
-              <Card  className="rounded">
-                <CardMedia
-                  component="img"
-                  alt="green iguana"
-                  height="140"
-                  image={url + "/uploads/" + thumbnail}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {description}
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="small" onClick={(e) => navigate("/user/viewblog/:blogid")}>View</Button>
-                </CardActions>
-              </Card>
-            </div>
-          )
-        )}
-      </div>
+        <div className="row">
+          {blogArray.map(
+            ({ _id, title, description, thumbnail, author, createdAt }) => (
+              <div className="col-md-4 mt-4">
+                <Card className="rounded">
+                  <CardMedia
+                    component="img"
+                    alt="green iguana"
+                    height="140"
+                    image={url + "/uploads/" + thumbnail}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {description}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button
+                      size="small"
+                      onClick={(e) => navigate("/main/viewblog/" + _id)}
+                    >
+                      View
+                    </Button>
+                  </CardActions>
+                </Card>
+              </div>
+            )
+          )}
+        </div>
       </div>
     );
   };

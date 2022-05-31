@@ -21,7 +21,6 @@ router.post("/add", (req, res) => {
     });
 });
 
-
 router.get("/getall", (req, res) => {
   Model.find({})
     .then((data) => {
@@ -46,6 +45,29 @@ router.post("/authenticate", (req, res) => {
         console.log("login failed");
         res.status(400).json({ message: "failed" });
       }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json(err);
+    });
+});
+
+router.delete("/delete/:id", (req, res) => {
+  Model.findByIdAndDelete(req.params.id)
+    .then((data) => {
+      console.log("user data deleted!");
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json(err);
+    });
+});
+
+router.put("/update/:id", (req, res) => {
+  Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then((data) => {
+      res.status(200).json(data);
     })
     .catch((err) => {
       console.error(err);

@@ -24,6 +24,7 @@ import Browsing from "./components/main/browsing";
 import AddBlog from "./components/user/addBlog";
 import ViewBlog from "./components/user/viewBlog";
 import Pricing from "./components/main/pricing";
+import Manageuser from "./components/admin/manageuser";
 
 function App() {
   TimeAgo.addDefaultLocale(en);
@@ -53,6 +54,7 @@ function App() {
           >
             <Route element={<Dashboard />} path="dashboard" />
             <Route element={<AdminProfile />} path="profile" />
+            <Route element={<Manageuser />} path="manageuser" />
           </Route>
           <Route
             element={
@@ -76,11 +78,10 @@ function App() {
             <Route element={<Home />} path="home" />
             <Route element={<Pricing />} path="pricing" />
             <Route element={<Browsing />} path="browsing" />
-            
-            
+            <Route element={<ViewBlog />} path="viewblog/:blogid" />
+
             {/* <Route element={<NotFound />} path="404" /> */}
           </Route>
-          <Route element={<ViewBlog />} path="viewblog/:blogid" />
           <Route element={<Navigate to="/main/home" />} path="/" />
           <Route element={<Navigate to="/main/404" />} path="*" />
         </Routes>

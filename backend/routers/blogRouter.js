@@ -57,6 +57,17 @@ router.delete("/delete/:id", (req, res) => {
     });
 });
 
+router.get("/getbyid/:id", (req, res) => {
+  Model.findById(req.params.id)
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json(err);
+    });
+});
+
 router.post("/authenticate", (req, res) => {
   const formdata = req.body;
 

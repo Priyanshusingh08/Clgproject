@@ -8,9 +8,18 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
-import { AppRegistration, Home, Login } from "@mui/icons-material";
+import {
+  AccountCircle,
+  AppRegistration,
+  Home,
+  Login,
+  MoreVert,
+  Subscriptions,
+  ShoppingCart,
+} from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { ListItemIcon, ListItemText } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -21,20 +30,8 @@ const pages = [
     link: "/main/home",
   },
   {
-    name: "Browse Blog",
-    link: "/user/browsing",
-  },
-  {
-    name: "Manage Blog",
-    link: "/user/manageblog",
-  },
-  {
-    name: "Pricing",
-    link: "/main/pricing",
-  },
-  {
-    name: "Profile",
-    link: "/user/profile",
+    name: "Manage Users",
+    link: "/main/manageuser",
   },
 ];
 
@@ -59,6 +56,7 @@ const guestUser = [
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
+  const [anchorElGuest, setAnchorElGuest] = useState(null);
 
   const [currentUser, setCurrentUser] = useState(null);
 
@@ -71,27 +69,28 @@ const Header = () => {
   const navigate = useNavigate();
 
   const logout = () => {
+    setAnchorElUser(null);
     sessionStorage.removeItem("user");
     navigate("/main/login");
   };
 
-  // const userMenu = [
-  //   {
-  //     name: "Profile",
-  //     icon: <AccountCircle />,
-  //     link: "/admin/profile",
-  //   },
-  //   {
-  //     name: "Manage Your Webpage",
-  //     icon: <Subscriptions />,
-  //     link: "/admin/managewebpage",
-  //   },
-  //   {
-  //     name: "Logout",
-  //     icon: <AccountCircle />,
-  //     click: logout,
-  //   },
-  // ];
+  const userMenu = [
+    {
+      name: "Profile",
+      icon: <AccountCircle />,
+      link: "/admin/profile",
+    },
+    {
+      name: "Manage Your Webpage",
+      icon: <Subscriptions />,
+      link: "/admin/managewebpage",
+    },
+    {
+      name: "Logout",
+      icon: <AccountCircle />,
+      click: logout,
+    },
+  ];
 
   const showAuthOptions = () => {
     if (currentUser === null) {
@@ -110,17 +109,17 @@ const Header = () => {
     setAnchorElNav(event.currentTarget);
   };
 
-  // const handleOpenUserMenu = (event) => {
-  //   setAnchorElUser(event.currentTarget);
-  // };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  // const handleCloseUserMenu = () => {
-  //   setAnchorElUser(null);
-  // };
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
 
   return (
     <div>
@@ -131,10 +130,10 @@ const Header = () => {
               variant="h5"
               noWrap
               component="div"
-              style={{ fontFamily: "Courgette" }}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+              style={{ fontFamily: "Courgette" }}
             >
-              Auto Blogger
+              AutoBlogger
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -191,11 +190,6 @@ const Header = () => {
                   {name}
                 </Button>
               ))}
-            </Box>
-            <Box>
-              <Button variant="contained" color="error" onClick={logout}>
-                Logout
-              </Button>
             </Box>
             {/* <Box sx={{ display: { xs: "none", md: "flex" } }}>
               {guestUser.map(({ name, link, icon }) => (
