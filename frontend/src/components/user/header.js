@@ -22,7 +22,7 @@ const pages = [
   },
   {
     name: "Browse Blog",
-    link: "/main/browsing",
+    link: "/user/browsing",
   },
   {
     name: "Manage Blog",
@@ -135,9 +135,10 @@ const Header = () => {
               variant="h5"
               noWrap
               component="div"
+              style={{ fontFamily: "Courgette" }}
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              Disposable Webpage
+              Auto Blogger
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

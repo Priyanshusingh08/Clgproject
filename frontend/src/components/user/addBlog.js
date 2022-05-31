@@ -81,9 +81,9 @@ const AddBlog = () => {
   return (
     <div>
       <div className="blog-body">
-        <div className="blog-header"></div>
+        <div className="blog-header" style={{background:"linear-gradient(90deg, rgba(36,0,0,1) 0%, rgba(37,9,121,1) 52%, rgba(177,20,0,1) 100%)"}}></div>
         <div className="container">
-          <div className="card post-card">
+          <div className="card post-card mb-4">
             <div className="card-body">
               <h4 className="text-center mt-2 mb-4">Add New Blog</h4>
               <div className="back-btn">

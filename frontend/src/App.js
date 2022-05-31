@@ -65,7 +65,9 @@ function App() {
             <Route element={<ManageVideo />} path="managevideo" />
             <Route element={<Manageblog />} path="manageblog" />
             <Route element={<AddBlog />} path="addblog" />
+            <Route element={<Profile />} path="profile" />
             <Route element={<ViewBlog />} path="viewblog" />
+            <Route element={<Browsing />} path="browsing" />
           </Route>
           <Route element={<Main />} path="main">
             <Route element={<Login />} path="login" />

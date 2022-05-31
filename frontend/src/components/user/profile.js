@@ -89,7 +89,7 @@ const Profile = (props) => {
   };
 
   return (
-    <div className="col-md-10 mx-auto">
+    <div className="col-md-10 mx-auto mt-4">
       <Card>
         <CardContent>
           <div className="row">

@@ -47,12 +47,11 @@ const Browsing = () => {
 
   const displayBlogs = () => {
     return (
-      <div className="container">
       <div className="row">
         {blogArray.map(
           ({ _id, title, description, thumbnail, author, createdAt }) => (
-            <div className="col-md">
-              <Card  className="rounded">
+            <div class="col-sm">
+              <Card   sx={{ width: 300 }} className="rounded">
                 <CardMedia
                   component="img"
                   alt="green iguana"
@@ -74,7 +73,6 @@ const Browsing = () => {
             </div>
           )
         )}
-      </div>
       </div>
     );
   };
@@ -135,7 +133,7 @@ const Browsing = () => {
       </section>
 
       <div class="container my-5">
-        <div class="row md-2">{displayBlogs()}</div>
+        <div class="row ">{displayBlogs()}</div>
       </div>
     </div>
   );
